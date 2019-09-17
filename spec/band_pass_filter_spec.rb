@@ -1,6 +1,13 @@
 require 'band_pass_filter'
 
 describe BandPassFilter do
+  band_pass_filter = BandPassFilter.new([1,2,3,4])
+  describe 'band_pass_filter' do
+    it 'can store a soundwave array' do
+      expect(band_pass_filter.array).to eq([1,2,3,4])
+    end
+  end
+
   subject(:band_pass_filter) {described_class.new}
   describe '#check_for_errors' do
     it 'outputs "Error in soundwave" when given ["a"] as input array' do
