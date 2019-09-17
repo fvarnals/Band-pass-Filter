@@ -4,7 +4,7 @@ Would like to use this program alongside other programs.
 Musicians apply filters to tracks to change how that track sounds.
 
 ## Product
-*Band Pass Filter*
+**Band Pass Filter** <p>
 Forces frequencies within that soundwave to fall within certain limits which we
  apply.
 
@@ -26,12 +26,12 @@ Soundwave - Array of Frequencies (integer)
 
 - Lower and Upper limits could be any value, regardless of soundwave array.
 
-Example:<br>
-*Soundwave = [5,6,7,8]
+**Example:** <p>
+Soundwave = [5,6,7,8]
 Lower Limit = 1
 Upper Limit = 7
 
-Output = [5,6,7,7]*
+Output = [5,6,7,7]
 
 - If no limit is supplied for one or both limit values, use default values:
 Default lower limit = 40
