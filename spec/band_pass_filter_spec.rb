@@ -1,10 +1,19 @@
 require 'band_pass_filter'
 
 describe BandPassFilter do
-  band_pass_filter = BandPassFilter.new([1,2,3,4])
+  soundwave_array = [1,2,3,4]
+  lower_limit = 4
+  upper_limit = 6
+  band_pass_filter = BandPassFilter.new(soundwave_array, lower_limit, upper_limit)
   describe 'band_pass_filter' do
     it 'can store a soundwave array' do
       expect(band_pass_filter.array).to eq([1,2,3,4])
+    end
+    it 'has lower limit for frequencies' do
+      expect(band_pass_filter.lower_limit).to eq(4)
+    end
+    it 'has upper limit for frequencies' do
+      expect(band_pass_filter.upper_limit).to eq(6)
     end
   end
 
