@@ -26,7 +26,7 @@ Soundwave - Array of Frequencies (integer)
 
 - Lower and Upper limits could be any value, regardless of soundwave array.
 
-Example:
+Example:<br>
 *Soundwave = [5,6,7,8]
 Lower Limit = 1
 Upper Limit = 7
