@@ -1,8 +1,9 @@
 Notes
 
 ## Client
-Company that makes digital audio workspace plugins
-Musicians apply filters to tracks to change how that track sounds
+Company that makes digital audio workspace plugins.
+Would like to use this program alongside other programs.
+Musicians apply filters to tracks to change how that track sounds.
 
 ## Product
 Band Pass Filter:
