@@ -4,27 +4,29 @@ class BandPassFilter
 
   def initialize(array:, lower_limit: 40, upper_limit: 1000)
     @array = array
-
-    if lower_limit.is_a? Integer
-      @lower_limit = lower_limit
-    else
-      raise "Error in lower limit"
-    end
-
-    if upper_limit.is_a? Integer
-      @upper_limit = upper_limit
-    else
-      raise "Error in upper limit"
-    end
-    
+    @lower_limit = check_input(lower_limit, 'lower limit')
+    @upper_limit = check_input(upper_limit, 'upper limit')
   end
 
   def check_for_errors(array)
     array.each do
       |frequency|
       if !frequency.is_a? Integer
-        raise "Error in soundwave"
+        raise_error('soundwave')
       end
     end
   end
+
+  def raise_error(name)
+    raise "Error in #{name}"
+  end
+
+  def check_input(limit, name)
+    if limit.is_a? Integer
+      return limit
+    else
+      raise_error(name)
+    end
+  end
+
 end
