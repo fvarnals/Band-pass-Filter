@@ -4,7 +4,13 @@ class BandPassFilter
 
   def initialize(array:, lower_limit: 40, upper_limit: 1000)
     @array = array
-    @lower_limit = lower_limit
+
+    if lower_limit.is_a? Integer
+      @lower_limit = lower_limit
+    else
+      raise "Error in lower limit"
+    end
+    
     @upper_limit = upper_limit
   end
 
