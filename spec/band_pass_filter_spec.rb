@@ -43,10 +43,17 @@ describe BandPassFilter do
       expect {band_pass_filter.check_for_errors(["a"])}.to raise_error("Error in soundwave")
     end
     it 'does not raise error when given [1,2] as input array' do
-      expect {band_pass_filter.check_for_errors([1,2])}.not_to raise_error("Error in soundwave")
+      expect {band_pass_filter.check_for_errors([1,2])}.not_to raise_error
     end
     it 'outputs "Error in soundwave" when given [33,44,23,"a",5] as input array' do
       expect {band_pass_filter.check_for_errors([33,44,23,"a",5])}.to raise_error("Error in soundwave")
+    end
+    it 'If input soundwave array contains more than 44100 values, then output
+    error: "Soundwave array exceeds maximum number of values (44100)"' do
+      array = []
+      44101.times{array.push(1)}
+      error = "Soundwave array exceeds maximum number of values (44100)"
+      expect{band_pass_filter = BandPassFilter.new(array: array)}.to raise_error(error)
     end
   end
 end
