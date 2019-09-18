@@ -8,11 +8,26 @@ class BandPassFilter
     @upper_limit = check_input(upper_limit, 'upper limit')
   end
 
+  def filter_frequencies
+    output_array = []
+    @array.each do
+      |frequency|
+      if frequency < @lower_limit
+        output_array.push(@lower_limit)
+      elsif frequency > @upper_limit
+        output_array.push(@upper_limit)
+      else
+        output_array.push(frequency)
+      end
+    end
+    return output_array
+  end
+
   def check_for_errors(array)
     if array.length > 44100
       raise "Soundwave array exceeds maximum number of values (44100)"
     end
-    
+
     array.each do
       |frequency|
       if !frequency.is_a? Integer

@@ -56,4 +56,23 @@ describe BandPassFilter do
       expect{band_pass_filter = BandPassFilter.new(array: array)}.to raise_error(error)
     end
   end
+
+  describe '#filter_frequencies' do
+    it 'should return [2,2,3,4,4] for a soundwave arrray of [1,2,3,4,5]
+    with a lower limit of 2 and an upper limit of 4' do
+      soundwave_array = [1,2,3,4,5]
+      lower_limit = 2
+      upper_limit = 4
+      band_pass_filter = BandPassFilter.new(array: soundwave_array, lower_limit: lower_limit, upper_limit: upper_limit)
+      expect(band_pass_filter.filter_frequencies).to eq([2,2,3,4,4])
+    end
+    it 'should return [3,3,3,5,5] for a soundwave arrray of [1,2,3,6,7]
+    with a lower limit of 3 and an upper limit of 4' do
+      soundwave_array = [1,2,3,6,7]
+      lower_limit = 3
+      upper_limit = 5
+      band_pass_filter = BandPassFilter.new(array: soundwave_array, lower_limit: lower_limit, upper_limit: upper_limit)
+      expect(band_pass_filter.filter_frequencies).to eq([3,3,3,5,5])
+    end
+  end
 end
