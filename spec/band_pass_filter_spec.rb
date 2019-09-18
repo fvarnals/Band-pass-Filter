@@ -20,9 +20,12 @@ describe BandPassFilter do
   describe 'default frequency limit values' do
     it 'if no lower limit is provided, a default value of 40 is set' do
       soundwave_array = [1,2,3,4]
-      upper_limit = 100
-    band_pass_filter = BandPassFilter.new(array: soundwave_array, upper_limit: upper_limit)
+    band_pass_filter = BandPassFilter.new(array: soundwave_array)
     expect(band_pass_filter.lower_limit).to eq(40)
+    end
+    it 'if no upper limit is provided, a default value of 1000 is set' do
+      band_pass_filter = BandPassFilter.new(array: soundwave_array)
+      expect(band_pass_filter.upper_limit).to eq(1000)
     end
   end
 
