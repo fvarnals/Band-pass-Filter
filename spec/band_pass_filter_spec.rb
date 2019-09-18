@@ -27,9 +27,13 @@ describe BandPassFilter do
       band_pass_filter = BandPassFilter.new(array: soundwave_array)
       expect(band_pass_filter.upper_limit).to eq(1000)
     end
-    it 'If lower limit, is not an integer, output error message: "Error in lower limit"' do
+    it 'If lower limit is not an integer, output error message: "Error in lower limit"' do
       lower_limit = 'a'
       expect{BandPassFilter.new(array: soundwave_array, lower_limit: lower_limit)}.to raise_error("Error in lower limit")
+    end
+    it 'If upper limit is not an integer, output error message: "Error in upper limit"' do
+      upper_limit = '23'
+      expect{BandPassFilter.new(array: soundwave_array, upper_limit: upper_limit)}.to raise_error("Error in upper limit")
     end
   end
 

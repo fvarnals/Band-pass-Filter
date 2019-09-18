@@ -10,8 +10,13 @@ class BandPassFilter
     else
       raise "Error in lower limit"
     end
+
+    if upper_limit.is_a? Integer
+      @upper_limit = upper_limit
+    else
+      raise "Error in upper limit"
+    end
     
-    @upper_limit = upper_limit
   end
 
   def check_for_errors(array)
